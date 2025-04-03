@@ -1,6 +1,6 @@
 import os
 from board import HexBoard
-from player import IAPlayer
+from player_def import AI_Player
 
 
 def clear_console():
@@ -27,12 +27,12 @@ def main():
         ai_player = 2 if human_player == 1 else 1
         player_objects = {
             human_player: None,  # Humano: Él hace su propio input
-           ai_player: IAPlayer(ai_player)
+           ai_player: AI_Player(ai_player)
         }
     elif mode == "3":
         player_objects = {
-            1: IAPlayer(1),  # IA
-            2: IAPlayer(2)   # IA
+            1: AI_Player(1),  # IA
+            2: AI_Player(2)   # IA
         }
     else:
         player_objects = {

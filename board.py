@@ -9,6 +9,8 @@ class HexBoard:
 
 
     def clone(self) -> "HexBoard":
+        """Devuelve una copia del tablero actual"""
+        
         cloned = self.__class__(self.size) 
         cloned.board = copy.deepcopy(self.board)
         cloned.player_positions = {
@@ -18,6 +20,8 @@ class HexBoard:
         return cloned    
 
     def place_piece(self, row: int, col: int, player_id: int) -> bool:
+        """Coloca una ficha si la casilla está vacía."""
+        
         if self.board[row][col] != 0:
             return False
         self.board[row][col] = player_id
@@ -25,6 +29,8 @@ class HexBoard:
         return True
 
     def get_possible_moves(self) -> list:
+        """Devuelve todas las casillas vacías como tuplas (fila, columna)."""
+        
         result = []
         for i in range(self.size):
             for j in range(self.size):
@@ -33,6 +39,7 @@ class HexBoard:
         return result            
     
     def check_connection(self, player_id: int) -> bool:
+        """Verifica si el jugador ha conectado sus dos lados"""
         return dfs(self.player_positions[player_id],player_id,self.size)
 
     def print_board(self):
