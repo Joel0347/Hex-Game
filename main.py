@@ -1,6 +1,6 @@
 import os
 from board import HexBoard
-from player_def import AI_Player
+from player import AI_Player
 
 
 def clear_console():
