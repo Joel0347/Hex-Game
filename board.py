@@ -54,9 +54,9 @@ class HexBoard:
             for j in range(self.size):
                 if self.board[i][j] == 0:
                     print("⬜ ",end=" ")
-                if self.board[i][j] == 1:
-                    print("🟥 ",end=" ")
                 if self.board[i][j] == 2:
+                    print("🟥 ",end=" ")
+                if self.board[i][j] == 1:
                     print("🟦 ",end=" ")
                 if j == self.size -1:
                     print(f"\033[34m {i} \033[0m",end=" ")
@@ -66,9 +66,3 @@ class HexBoard:
         for i in range(self.size):
             print(f"\033[31m{i}  \033[0m", end=" ")
             
-                
-                    
-
-
-
-

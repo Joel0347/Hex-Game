@@ -5,8 +5,11 @@ def dfs(g,player_id,size):
     visited = set()
     p = {}
     for u in g:
-        if u[player_id - 1] != 0:
+        if player_id == 1 and u[1] != 0:
             continue
+        elif player_id == 2 and u[0] != 0:
+            continue
+
         if u not in visited:
             p[(u[0],u[1])] = None
             if dfs_visit(g,u,visited,p,size,player_id):
@@ -19,9 +22,11 @@ def dfs_visit(g,u,visited,p,size,player_id):
         v = (u[0]+dir[0],u[1]+dir[1])
         if v not in g:
             continue
-        if v[player_id - 1] == size - 1:
-            p[v] = u
+        if player_id == 1 and v[1] == size - 1:
             return True
+        elif player_id == 2 and v[0] == size - 1:
+            return True
+
         if v not in visited:
             p[v] = u
             if dfs_visit(g,v,visited,p,size,player_id):
