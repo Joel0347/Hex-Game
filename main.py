@@ -23,7 +23,7 @@ def main():
     mode = input("Seleccione modo de juego (1: Humano vs Humano, 2: Humano vs IA, 3: IA vs IA): ")
 
     if mode == "2":
-        human_player = int(input("Elija su identificador (1 para 🔴, 2 para 🔵): "))
+        human_player = int(input("Elija su identificador (1 para 🔵, 2 para 🔴): "))
         ai_player = 2 if human_player == 1 else 1
         player_objects = {
             human_player: None,  # Humano: Él hace su propio input
@@ -46,16 +46,16 @@ def main():
         board.print_board()
 
         if board.check_connection(1):
-            print("¡El jugador 1 (🔴) ha ganado!")
+            print("¡El jugador 1 (🔵) ha ganado!")
             break
         if board.check_connection(2):
-            print("¡El jugador 2 (🔵) ha ganado!")
+            print("¡El jugador 2 (🔴) ha ganado!")
             break
         if not board.get_possible_moves():
             print("Empate. No hay más movimientos disponibles.")
             break
 
-        print(f"\n \n Turno del jugador {current_player} ({'🔴' if current_player == 1 else '🔵'}).")
+        print(f"\n \n Turno del jugador {current_player} ({'🔵' if current_player == 1 else '🔴'}).")
 
         if player_objects.get(current_player) is None:
             # movimiento del humano(por coordenadas)
