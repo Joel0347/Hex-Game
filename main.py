@@ -45,11 +45,13 @@ def main():
         clear_console()
         board.print_board()
 
-        if board.check_connection(1):
+        if AI_Player.check_connection(board, 1)[0]:
             print("¡El jugador 1 (🔵) ha ganado!")
+            print(AI_Player.check_connection(board, 1)[1])
             break
-        if board.check_connection(2):
+        if AI_Player.check_connection(board, 2)[0]:
             print("¡El jugador 2 (🔴) ha ganado!")
+            print(AI_Player.check_connection(board, 2)[1])
             break
         if not board.get_possible_moves():
             print("Empate. No hay más movimientos disponibles.")
