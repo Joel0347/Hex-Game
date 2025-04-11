@@ -1,5 +1,5 @@
 from numpy import random
-from board import HexBoard
+from board import HexBoard #importar aqui el archivo del tablero a usar con la definción de la clase `HexBoard`
 from collections import deque
 from abc import ABC, abstractmethod
 
@@ -62,7 +62,7 @@ class AI_Player(Player):
             return (), 1000
         
         if (not depth):
-            return (), self.heuristic(board, id)
+            return (), self.heuristic(board)
         
         possible_moves = AI_Player.get_possible_moves(board)
         possible_moves.sort(key=lambda move: (
@@ -124,7 +124,7 @@ class AI_Player(Player):
         elif AI_Player.check_connection(board, 3 - player_id)[0]:
             result = -float('inf') if depth != float('inf') else 0
         elif not depth:
-            return self.heuristic(board, player_id)
+            return self.heuristic(board)
         else:
             possible_moves = AI_Player.get_possible_moves(board)
             row, col = possible_moves[random.choice(len(possible_moves))]
@@ -161,7 +161,7 @@ class AI_Player(Player):
                 if move_played_count[move] > 0 else 0
         )
 
-    def heuristic(self, board: HexBoard, player_id: int) -> int:
+    def heuristic(self, board: HexBoard) -> int:
         """
         Heurística que evalúa la menor cantidad de movimientos para ganar.
         Prioriza jugadas ganadoras o bloquear al oponente.

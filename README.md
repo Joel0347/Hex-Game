@@ -11,6 +11,8 @@ Estrategia híbrida que combina:
 - **Heurísticas basadas en distancia de caminos**
 - **Detección de victorias/derrotas inminentes**
 
+## Nota: Se debe importar el archivo del tablero en el player.py pues las funciones son tipadas y pierden la referencia al tipo `HexBoard`
+
 ## Algoritmos Clave
 
 ### 1. Toma de Decisión Principal (`play()`)
