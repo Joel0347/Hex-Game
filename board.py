@@ -1,5 +1,4 @@
 import copy
-from utils import dfs
 
 class HexBoard:
     def __init__(self, size: int):
@@ -40,7 +39,8 @@ class HexBoard:
     
     def check_connection(self, player_id: int) -> bool:
         """Verifica si el jugador ha conectado sus dos lados"""
-        return dfs(self.player_positions[player_id],player_id,self.size)
+        # return dfs(self.player_positions[player_id],player_id,self.size)
+        pass
 
     def print_board(self):
         space = ""

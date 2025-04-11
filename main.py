@@ -42,7 +42,7 @@ def main():
 
     current_player = 1
     while True:
-        clear_console()
+        # clear_console()
         board.print_board()
 
         if AI_Player.check_connection(board, 1)[0]:
@@ -69,11 +69,18 @@ def main():
                 continue
             if (row, col) not in board.get_possible_moves():
                 print("Movimiento no válido o casilla ocupada. Inténtelo de nuevo.")
+                while input() != '.':
+                    pass
                 continue
             board.place_piece(row, col, current_player)
         else:
             move = player_objects[current_player].play(board)
             print(f"La IA juega en la posición: {move}")
+            if move not in board.get_possible_moves():
+                print("Movimiento no válido o casilla ocupada. Inténtelo de nuevo.")
+                while input() != '.':
+                    pass
+                continue
             board.place_piece(move[0], move[1], current_player)
 
         # Cambiar turno
